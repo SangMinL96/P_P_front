@@ -52,7 +52,8 @@ export default class App extends React.Component {
     //   return Asset.fromModule(image).downloadAsync();
     // });
     const cacheIcon = Font.loadAsync({
-      ...Icon.MaterialCommunityIcons.font
+      ...Icon.MaterialCommunityIcons.font,
+      ...Icon.FontAwesome.font,
     });
 
     return Promise.all(cacheIcon);

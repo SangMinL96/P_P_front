@@ -4,6 +4,8 @@ import { useIsLoggedIn, useLogIn, useLogOut } from '../utils/AuthProvider';
 // import { onUserInfo } from '../component/utils';
 import LoginIndex from '../page/auth/login/Index';
 import SignupIndex from '../page/auth/signup/Index';
+import AgreeView from '../page/auth/signup/Agree';
+import SignupView from '../page/auth/signup/Signup';
 
 
 
@@ -47,6 +49,8 @@ export default function Stack() {
         <>
           <Stack.Screen name="Login"   component={LoginIndex} />
           <Stack.Screen name="SignUp" component={SignupIndex} />
+          <Stack.Screen name="Agree" component={AgreeView} />
+          <Stack.Screen name="Signup" component={SignupView} />
         </>
       )}
     </Stack.Navigator>
