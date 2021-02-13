@@ -5,10 +5,10 @@ import { Image, Text, TouchableOpacity, View } from 'react-native';
 import { Button, Divider } from 'react-native-elements';
 import styled from 'styled-components/native';
 import Screen from '../../../utils/Dimenstions';
-import TextInput from '../../../utils/TextInput';
+import TextInput from '../../../component/TextInput';
 function Login() {
   const { control, handleSubmit, setValue, errors, clearErrors } = useForm();
-  const navigation = useNavigation()
+  const navigation = useNavigation();
   const onSubmit = async (data) => {
     try {
       //   const rslt = await loginMt({ variables: { param: data } });
@@ -82,7 +82,7 @@ const LoginView = styled.View`
   align-items: center;
 `;
 const Logo = styled.Image`
-  width: 50%;
+  width: 48%;
   border-radius: 15px;
 `;
 const InputView = styled.View`
@@ -99,7 +99,8 @@ const FindView = styled.View`
   flex-direction: row;
 `;
 const FindText = styled.Text`
-  color: gray;
+  font-size: 12px;
+  color: ${(props) => props.theme.darkGreyColor};
 `;
 
 const DividerView = styled(Divider)`
@@ -113,7 +114,7 @@ const DividerView = styled(Divider)`
 const SocialText = styled.Text`
   padding: 10px;
   background-color: #f1f1f1;
-  color: #969696;
+  color: ${(props) => props.theme.darkGreyColor};
 `;
 const SocialView = styled.View`
   flex-direction: row;
@@ -126,7 +127,7 @@ const SocialLogo = styled.Image`
 `;
 
 const Touchable = styled(TouchableOpacity)`
-width: 50%;
-justify-content: center;
-align-items: center;
-`
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+`;
