@@ -1,18 +1,34 @@
-import React, { useState } from 'react';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
 import styled from 'styled-components/native';
 import { Button, CheckBox } from 'react-native-elements';
 import Card from '../../../component/Card';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-
-
+import { Alert } from 'react-native';
+import AgreeModal from '../../../utils/AgreeModal';
 function Agree({ setCurrent }) {
-  const [Check, setCheck] = useState({ all: false, check1: false, check2: false, check3: false });
-
+  const [check, setCheck] = useState({ all: false, check1: false, check2: false, check3: false });
+  const [open, setOpen] = useState(false);
+  /**
+   * 모두동의 체크박스 클릭 이벤트
+   */
   const onAllCheck = () => {
-    if (Check.all === false) {
+    if (check.all === false) {
       setCheck((props) => ({ ...props, all: true, check1: true, check2: true, check3: true }));
     } else {
       setCheck((props) => ({ ...props, all: false, check1: false, check2: false, check3: false }));
+    }
+  };
+
+  const onNext = () => {
+    if (check.check1 === true && check.check2 === true) {
+      setCurrent(1);
+    } else {
+      Alert.alert(
+        '약관동의',
+        '필수 약관 동의해 주세요.',
+        [{ text: '확인', onPress: () => console.log('OK Pressed') }],
+        { cancelable: false }
+      );
     }
   };
   return (
@@ -23,7 +39,7 @@ function Agree({ setCurrent }) {
         title="모두동의"
         checkedColor={'#e84393'}
         onPress={onAllCheck}
-        checked={Check.all}
+        checked={check.all}
       />
       <Card>
         <CardTextView>
@@ -36,10 +52,10 @@ function Agree({ setCurrent }) {
             title="패션피플 약관 동의(필수)"
             textStyle={{ fontSize: 10 }}
             checkedColor={'#e84393'}
-            onPress={() => setCheck((props) => ({ ...props, check1: !props.check1 }))}
-            checked={Check.check1}
+            onPress={() => setCheck((props) => ({ ...props, all: false, check1: !props.check1 }))}
+            checked={check.check1}
           />
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => setOpen(true)}>
             <CardText>내용 보기</CardText>
           </TouchableOpacity>
         </CardTextView>
@@ -53,8 +69,8 @@ function Agree({ setCurrent }) {
             title="개인정보수집 및 이용에 대한 안내(필수)"
             textStyle={{ fontSize: 10 }}
             checkedColor={'#e84393'}
-            onPress={() => setCheck((props) => ({ ...props, check2: !props.check2 }))}
-            checked={Check.check2}
+            onPress={() => setCheck((props) => ({ ...props, all: false, check2: !props.check2 }))}
+            checked={check.check2}
           />
           <TouchableOpacity>
             <CardText>내용 보기</CardText>
@@ -70,8 +86,8 @@ function Agree({ setCurrent }) {
             title="이벤트/마케팅 수신동의(선택)"
             textStyle={{ fontSize: 10 }}
             checkedColor={'#e84393'}
-            onPress={() => setCheck((props) => ({ ...props, check3: !props.check3 }))}
-            checked={Check.check3}
+            onPress={() => setCheck((props) => ({ ...props, all: false, check3: !props.check3 }))}
+            checked={check.check3}
           />
           <TouchableOpacity>
             <CardText>내용 보기</CardText>
@@ -87,10 +103,11 @@ function Agree({ setCurrent }) {
           height: 50,
           borderRadius: 10
         }}
-        containerStyle={{ width: '100%',marginTop:"10%" }}
+        containerStyle={{ width: '100%', marginTop: '10%' }}
         title="다음"
-        onPress={() =>setCurrent(1)}
+        onPress={onNext}
       />
+      {open ? <AgreeModal open={open} setOpen={setOpen} /> : null}
     </AgreeView>
   );
 }

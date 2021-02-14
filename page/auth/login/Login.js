@@ -9,6 +9,12 @@ import TextInput from '../../../component/TextInput';
 function Login() {
   const { control, handleSubmit, setValue, errors, clearErrors } = useForm();
   const navigation = useNavigation();
+
+
+     /**
+   * 로그인 submit 폼
+   * @param {object} data 로그인 데이터 인풋값
+   */
   const onSubmit = async (data) => {
     try {
       //   const rslt = await loginMt({ variables: { param: data } });
@@ -47,7 +53,6 @@ function Login() {
           borderRadius: 10
         }}
         containerStyle={{ width: '100%' }}
-        type="outline"
         title="회원가입"
         onPress={() => navigation.navigate('SignUp')}
       />

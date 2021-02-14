@@ -1,18 +1,18 @@
 import { HeaderBackButton } from '@react-navigation/stack';
 import React, { useLayoutEffect, useState } from 'react';
 import styled from 'styled-components/native';
-import { getStatusBarHeight } from 'react-native-status-bar-height';
 import StepIndicator from 'react-native-step-indicator';
 import Agree from './Agree';
 import Signup from './Signup';
 import Start from './Start';
+import { statusHeight } from '../../../utils/StatusHeight';
 function SignupIndex({ navigation }) {
-  const [current, setCurrent] = useState(2);
+  const [current, setCurrent] = useState(0);
   useLayoutEffect(() => {
     navigation.setOptions({
       header: (props) => (
         <>
-          <RoomHeaderView style={{marginTop:getStatusBarHeight()+5}}>
+          <RoomHeaderView style={{marginTop:statusHeight}}>
             <HeaderBackButton
               {...props}
               onPress={(ev) => {
