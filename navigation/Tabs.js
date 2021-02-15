@@ -6,6 +6,10 @@ import HomeIndex from '../page/main/home/Index';
 import { View } from 'react-native';
 import { Text } from 'react-native';
 import { statusHeight } from '../utils/StatusHeight';
+import NoticeIndex from '../page/main/notice/Index';
+import RankingIndex from '../page/main/ranking/Index';
+import MyIndex from '../page/main/my/Index';
+import NewsIndex from '../page/main/news/Index';
 const Tab = createMaterialBottomTabNavigator();
 
 function Tabs({ navigation }) {
@@ -26,10 +30,43 @@ function Tabs({ navigation }) {
         name="Home"
         component={HomeIndex}
         options={{
-          tabBarLabel: '홈',
-          tabBarIcon: ({ color }) => <Ionicons name={`${iconName}alarm-outline`} color={color} size={20} />
+          tabBarLabel: 'Home',
+          tabBarIcon: ({ color }) => <Ionicons name={`${iconName}home-outline`} color={color} size={20} />
         }}
       />
+       <Tab.Screen
+        name="Notice"
+        component={NoticeIndex}
+        options={{
+          tabBarLabel: 'Notice',
+          tabBarIcon: ({ color }) => <Ionicons name={`${iconName}chatbubbles-outline`} color={color} size={20} />
+        }}
+      />
+       <Tab.Screen
+        name="Ranking"
+        component={RankingIndex}
+        options={{
+          tabBarLabel: 'Ranking',
+          tabBarIcon: ({ color }) => <Ionicons name={`${iconName}trophy-outline`} color={color} size={20} />
+        }}
+      />
+       <Tab.Screen
+        name="News"
+        component={NewsIndex}
+        options={{
+          tabBarLabel: 'News',
+          tabBarIcon: ({ color }) => <Ionicons name={`${iconName}newspaper-outline`} color={color} size={20} />
+        }}
+      />
+       <Tab.Screen
+        name="My"
+        component={MyIndex}
+        options={{
+          tabBarLabel: 'My',
+          tabBarIcon: ({ color }) => <Ionicons name={`${iconName}person-circle-outline`} color={color} size={20} />
+        }}
+      />
+      
     </Tab.Navigator>
   );
 }
