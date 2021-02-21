@@ -8,7 +8,7 @@ import HeaderContainer from '../../../component/HeaderContainer';
 function HomeCategory() {
   return (
     <HomeCategoryView>
-      <ScrollView horizontal>
+      <ScrollView showsHorizontalScrollIndicator={false} horizontal>
         <CategoryTag>펑크룩</CategoryTag>
         <CategoryTag>코듀로이</CategoryTag>
         <CategoryTag>출근룩</CategoryTag>
