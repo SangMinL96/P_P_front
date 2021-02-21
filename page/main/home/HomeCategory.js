@@ -50,15 +50,8 @@ const CategoryTag = styled.Text`
   margin-right: 3px;
   padding: 5px 7px;
   border-radius: 5px;
-  background-color: rgba(232, 67, 147, 0.904);
+  background-color: rgba(42, 45, 48, 0.418);
 `;
-
-
-
-
-
-
-
 
 // import React from 'react';
 // import { Text } from 'react-native';

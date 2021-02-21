@@ -34,7 +34,7 @@ function Tabs({ navigation }) {
           tabBarIcon: ({ color }) => <Ionicons name={`${iconName}home-outline`} color={color} size={20} />
         }}
       />
-       <Tab.Screen
+      <Tab.Screen
         name="Notice"
         component={NoticeIndex}
         options={{
@@ -42,7 +42,7 @@ function Tabs({ navigation }) {
           tabBarIcon: ({ color }) => <Ionicons name={`${iconName}chatbubbles-outline`} color={color} size={20} />
         }}
       />
-       <Tab.Screen
+      <Tab.Screen
         name="Ranking"
         component={RankingIndex}
         options={{
@@ -50,7 +50,7 @@ function Tabs({ navigation }) {
           tabBarIcon: ({ color }) => <Ionicons name={`${iconName}trophy-outline`} color={color} size={20} />
         }}
       />
-       <Tab.Screen
+      <Tab.Screen
         name="News"
         component={NewsIndex}
         options={{
@@ -58,7 +58,7 @@ function Tabs({ navigation }) {
           tabBarIcon: ({ color }) => <Ionicons name={`${iconName}newspaper-outline`} color={color} size={20} />
         }}
       />
-       <Tab.Screen
+      <Tab.Screen
         name="My"
         component={MyIndex}
         options={{
@@ -66,7 +66,6 @@ function Tabs({ navigation }) {
           tabBarIcon: ({ color }) => <Ionicons name={`${iconName}person-circle-outline`} color={color} size={20} />
         }}
       />
-      
     </Tab.Navigator>
   );
 }
