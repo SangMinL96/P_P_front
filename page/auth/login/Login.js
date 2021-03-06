@@ -10,8 +10,7 @@ function Login() {
   const { control, handleSubmit, setValue, errors, clearErrors } = useForm();
   const navigation = useNavigation();
 
-
-     /**
+  /**
    * 로그인 submit 폼
    * @param {object} data 로그인 데이터 인풋값
    */
@@ -23,7 +22,9 @@ function Login() {
       //     setLogLoading(false)
       //   }
       //  onLogin(userInfo);
-    } catch (err) {}
+    } catch (err) {
+      console.log(err);
+    }
   };
   return (
     <LoginView>
